@@ -1,0 +1,61 @@
+<!-- templates/books.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>Books List</h2>
+<form method="POST" style="margin-bottom: 20px;"></form>
+    {{ form.hidden_tag() }}
+    <div style="margin-bottom: 10px;">
+        {{ form.title.label }} {{ form.title(size=32, class_='form-control') }}
+    </div>
+    <div style="margin-bottom: 10px;">
+        {{ form.author.label }} {{ form.author(size=32, class_='form-control') }}
+    </div>
+    <div style="margin-bottom: 10px;">
+        {{ form.genre.label }} {{ form.genre(size=32, class_='form-control') }}
+    </div>
+    <div style="margin-bottom: 10px;">
+        {{ form.available_copies.label }} {{ form.available_copies(size=5, class_='form-control') }}
+    </div>
+    <div>
+        {{ form.submit(class_='btn btn-primary') }}
+    </div>
+</form>
+
+<h3>Available Books</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Available Copies</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.available_copies }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1em 0;
+    }
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .table th {
+        background-color: #f2f2f2;
+    }
+</style>
+{% endblock %}

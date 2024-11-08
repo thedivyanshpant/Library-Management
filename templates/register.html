@@ -1,0 +1,60 @@
+<!-- templates/register.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Register</h2>
+    <form method="POST" class="needs-validation register-form" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", size=32) }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", size=32) }}
+        </div>
+        <div class="form-group">
+            {{ form.role.label(class="form-label") }}
+            {{ form.role(class="form-control", size=32) }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+<style>
+    .register-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+        background-color: #f9f9f9;
+    }
+    .form-group {
+        margin-bottom: 1em;
+    }
+    .form-label {
+        margin-bottom: .5em;
+        color: #333;
+    }
+    .form-control {
+        width: 100%;
+        padding: .5em;
+        border: 1px solid #ccc;
+        border-radius: .25em;
+    }
+    .btn-primary {
+        padding: .5em 1em;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: .25em;
+        cursor: pointer;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .dashboard {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .dashboard h2 {
+        color: #4c4eaf;
+        font-size: 2.5em;
+    }
+    .dashboard p {
+        font-size: 1.2em;
+        color: #555;
+    }
+</style>
+<div class="dashboard">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>This is your dashboard.</p>
+</div>
+<div class="stats"></div>
+    <h3>Library Statistics</h3>
+    <ul>
+        <li>Total Books: {{ total_books }}</li>
+        <li>Books Borrowed: {{ books_borrowed }}</li>
+        <li>Books Available: {{ books_available }}</li>
+    </ul>
+</div>
+<div class="actions">
+    <h3>Quick Actions</h3>
+    <button onclick="location.href='/add-book'">Add New Book</button>
+    <button onclick="location.href='/borrow-book'">Borrow a Book</button>
+    <button onclick="location.href='/return-book'">Return a Book</button>
+</div>
+{% endblock %}
